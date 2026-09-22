@@ -39,3 +39,25 @@ function isAnangram(str1, str2) {
 
     return true;
 }
+
+//Q3 -------> First Non-Repeating Character
+function firstUniqueChar(str) {
+    let obj = {}
+
+    for (let i = 0; i < str.length; i++) {
+
+        if(obj[str[i]]){
+            obj[str[i]]++
+        }else{
+            obj[str[i]] = 1
+        }
+    }
+
+    for (let i = 0; i < str.length; i++) {
+        if(obj[str[i]] === 1){
+            return i
+        }
+    }
+
+    return -1
+}
