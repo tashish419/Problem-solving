@@ -51,3 +51,16 @@ function isPalindrome(x) {
         return true;
     } else return false;
 }
+
+// Q5 ---------largest digiit
+function largestDigit(n) {
+    let largest = 0;
+    while(n > 0){
+        let lastDigit = n % 10;
+        n = Math.floor(n/10)
+        if(lastDigit > largest){
+            largest = lastDigit
+        }
+    }
+    return largest
+}
