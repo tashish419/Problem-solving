@@ -22,3 +22,15 @@ function countOddDigit(n) {
     }
     return count;
 }
+
+//Q3 ------- reverse an integer
+function reverse(n) {
+    let rev = 0;
+
+    while (n > 0) {
+        let lastDigit = n % 10;
+
+        rev = rev * 10 + lastDigit;
+    }
+    return rev;
+}
