@@ -34,3 +34,20 @@ function reverse(n) {
     }
     return rev;
 }
+
+//Q4 ------- palindrome number
+function isPalindrome(x) {
+    let rev = 0;
+    let original = x;
+
+    while (x > 0) {
+        let lastdigit = x % 10;
+        x = Math.floor(x / 10);
+
+        rev = rev * 10 + lastdigit;
+    }
+
+    if (original === rev) {
+        return true;
+    } else return false;
+}
