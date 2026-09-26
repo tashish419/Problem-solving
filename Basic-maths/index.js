@@ -1,13 +1,24 @@
 //Q1 ---- Count digit
 function countDigit(n) {
     let count = 0;
-    let lastDigit = 0
+    while (n > 0) {
+        n = Math.floor(n / 10);
+        count++;
+    }
+    return count;
+}
+
+//Q2 -----count odd digits
+function countOddDigit(n) {
+    let count = 0;
+    let lastDigit = n;
     while (n > 0) {
         lastDigit = n % 10;
 
-        n = Math.floor(n/10)
-        count++
+        n = Math.floor(n / 10);
+        if (lastDigit % 2 !== 0) {
+            count++;
+        }
     }
-    return count
-    
+    return count;
 }
