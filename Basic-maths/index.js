@@ -95,12 +95,23 @@ function isArmstrong(n) {
 }
 
 //Q8 ------ check perfect number
-var checkPerfectNumber = function(num) {
-    let sum = 0
-    for(let i = 1; i < num; i++){
-        if(num%i === 0){
-            sum = sum + i
+var checkPerfectNumber = function (num) {
+    let sum = 0;
+    for (let i = 1; i < num; i++) {
+        if (num % i === 0) {
+            sum = sum + i;
         }
     }
     return sum === num;
 };
+
+//Q9 ------- Check prime number
+function isPrime(n) {
+    if (n <= 1) return false;
+    for (let i = 2; i < n; i++) {
+        if (n % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
