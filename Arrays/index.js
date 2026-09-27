@@ -32,3 +32,23 @@ function reverse(arr, n) {
     }
     return arr;
 }
+
+//Q4 -------find second largest element
+function secondLargestElement(nums) {
+    let largest = -Infinity;
+    let second = -Infinity;
+
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] > largest) {
+            second = largest;
+            largest = nums[i];
+        }
+
+        if (nums[i] !== largest && nums[i] > second) {
+            second = nums[i];
+        }
+    }
+
+    if (second === -Infinity) return -1;
+    return second;
+}
