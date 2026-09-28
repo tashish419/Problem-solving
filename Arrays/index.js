@@ -55,15 +55,29 @@ function secondLargestElement(nums) {
 
 //Q5 --------- Find the Maximum Consecutive Ones
 function findMaxConsecutiveOnes(nums) {
-        let max = 0;
-        let count = 0;
-        for(let i = 0; i < nums.length; i++){
-            if(nums[i] === 1){
-                count++
-                max = Math.max(max, count);
-            }else{
-                count = 0
-            }
+    let max = 0;
+    let count = 0;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] === 1) {
+            count++;
+            max = Math.max(max, count);
+        } else {
+            count = 0;
         }
-        return max
     }
+    return max;
+}
+
+//Q6 ---------- Rotate Array by One
+function rotateArrayByOne(arr) {
+    let temp = arr[0];
+    let k = 0;
+    for (let i = 1; i < arr.length; i++) {
+        arr[k] = arr[i];
+        arr[i] = temp;
+        k++;
+    }
+    return arr;
+}
+
+//Q7 ----------- 
