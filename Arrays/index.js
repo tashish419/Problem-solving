@@ -80,4 +80,29 @@ function rotateArrayByOne(arr) {
     return arr;
 }
 
-//Q7 ----------- 
+//or
+function rotateArrayByOne(arr) {
+    let temp = arr[0];
+    let k = 0;
+    for (let i = 1; i < arr.length; i++) {
+        arr[k] = arr[i];
+        k++;
+    }
+    arr[arr.length - 1] = temp;
+    return arr;
+}
+
+//Q7 remove duplicates from the sorted array
+function removeDuplicates(arr) {
+    let x = 0;
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] !== arr[x]) {
+            x++;
+            arr[x] = arr[i];
+        }
+    }
+
+    return x + 1;
+}
+
+//Q7 ----------- left rotate array by K places
