@@ -106,3 +106,41 @@ function removeDuplicates(arr) {
 }
 
 //Q7 ----------- left rotate array by K places
+function rotateArrayByK(nums, k) {
+    let n = nums.length;    
+
+    if(k === 0) return nums
+
+    k = k % n;
+
+    let left = 0;
+    let right = n - 1
+    while(left < right){
+        let temp = nums[left]
+        nums[left] = nums[right]
+        nums[right] = temp;
+        left++
+        right--
+    }
+
+    left = 0;
+    right = k-1
+    while(left < right){
+        let temp = nums[left];
+        nums[left] = nums[right]
+        nums[right] = temp
+        left++
+        right--
+    }
+    left = k
+    right = n -1
+    while(left < right){
+        let temp = nums[left];
+        nums[left] = nums[right]
+        nums[right] = temp;
+        left++
+        right--
+    }
+   
+    return nums;
+};
