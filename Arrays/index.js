@@ -177,3 +177,11 @@ var missingNumber = function(nums) {
 
     return expectedSum - actualSum;
 };
+
+//Q10 --------- Linear search
+function lineraSearch(arr, num){
+    for (let i = 0; i < arr.length; i++) {
+        if(arr[i] === num) return i
+    }
+    return -1
+}
