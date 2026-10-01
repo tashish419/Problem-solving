@@ -158,3 +158,22 @@ var moveZeroes = function(nums) {
         nums[i] = 0
     }
 };
+
+//Q9 ------- Find missing number
+var missingNumber = function(nums) {
+    let n = nums.length;
+
+    let expectedSum = 0;
+
+    for(let i = 0; i <= n; i++){
+        expectedSum += i
+    }
+
+    let actualSum = 0;
+
+    for(let num of nums){
+        actualSum += num
+    }
+
+    return expectedSum - actualSum;
+};
