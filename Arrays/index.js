@@ -223,3 +223,29 @@ function unionSorted(arr1, arr2) {
     }
     return union;
 }
+
+//Q
+function intersectionArray(nums1, nums2) {
+        let n1 = nums1.length;
+        let n2 = nums2.length;
+        let i = 0;
+        let j = 0;
+        let inter = []
+        while(i < n1 && j < n2){
+            if(nums1[i] < nums2[j]){
+                i++
+            } else if(nums1[i] >nums2[j]){
+                j++
+            } else{
+                if(inter.length === 0 || inter[inter.length - 1] !== nums1[i]){
+                    inter.push(nums1[i]);
+                    i++;
+                    j++;
+                }else{
+                    i++;
+                    j++;
+                }
+            }
+        }
+        return inter
+    }
