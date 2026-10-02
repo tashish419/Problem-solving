@@ -107,81 +107,119 @@ function removeDuplicates(arr) {
 
 //Q7 ----------- left rotate array by K places
 function rotateArrayByK(nums, k) {
-    let n = nums.length;    
+    let n = nums.length;
 
-    if(k === 0) return nums
+    if (k === 0) return nums;
 
     k = k % n;
 
     let left = 0;
-    let right = n - 1
-    while(left < right){
-        let temp = nums[left]
-        nums[left] = nums[right]
+    let right = n - 1;
+    while (left < right) {
+        let temp = nums[left];
+        nums[left] = nums[right];
         nums[right] = temp;
-        left++
-        right--
+        left++;
+        right--;
     }
 
     left = 0;
-    right = k-1
-    while(left < right){
+    right = k - 1;
+    while (left < right) {
         let temp = nums[left];
-        nums[left] = nums[right]
-        nums[right] = temp
-        left++
-        right--
-    }
-    left = k
-    right = n -1
-    while(left < right){
-        let temp = nums[left];
-        nums[left] = nums[right]
+        nums[left] = nums[right];
         nums[right] = temp;
-        left++
-        right--
+        left++;
+        right--;
     }
-   
+    left = k;
+    right = n - 1;
+    while (left < right) {
+        let temp = nums[left];
+        nums[left] = nums[right];
+        nums[right] = temp;
+        left++;
+        right--;
+    }
+
     return nums;
-};
+}
 
 //Q8 ------- Move zeroes to the end
-var moveZeroes = function(nums) {
+var moveZeroes = function (nums) {
     let x = 0;
-    for(let i = 0; i < nums.length; i++){
-        if(nums[i] !== 0){
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== 0) {
             nums[x] = nums[i];
-            x++
+            x++;
         }
     }
-    for(let i = x; i < nums.length; i++){
-        nums[i] = 0
+    for (let i = x; i < nums.length; i++) {
+        nums[i] = 0;
     }
 };
 
 //Q9 ------- Find missing number
-var missingNumber = function(nums) {
+var missingNumber = function (nums) {
     let n = nums.length;
 
     let expectedSum = 0;
 
-    for(let i = 0; i <= n; i++){
-        expectedSum += i
+    for (let i = 0; i <= n; i++) {
+        expectedSum += i;
     }
 
     let actualSum = 0;
 
-    for(let num of nums){
-        actualSum += num
+    for (let num of nums) {
+        actualSum += num;
     }
 
     return expectedSum - actualSum;
 };
 
 //Q10 --------- Linear search
-function lineraSearch(arr, num){
+function lineraSearch(arr, num) {
     for (let i = 0; i < arr.length; i++) {
-        if(arr[i] === num) return i
+        if (arr[i] === num) return i;
     }
-    return -1
+    return -1;
+}
+
+//Q11 ------------- Union of 2 sorted arrays
+function unionSorted(arr1, arr2) {
+    let n1 = arr1.length;
+    let n2 = arr2.length;
+    let i = 0;
+    let j = 0;
+
+    let union = [];
+    while (i < n1 && j < n2) {
+        if (arr1[i] <= arr2[j]) {
+            if (union.length === 0 || union[union.length - 1] !== arr1[i]) {
+                union.push(arr1[i]);
+            }
+            i++;
+        } else {
+            if (union.length === 0 || union[union.length - 1] !== arr2[j]) {
+                union.push(arr2[j]);
+            }
+            j++;
+        }
+    }
+
+    while (i < n1) {
+        if (union.length === 0 || union[union.length - 1] !== arr1[i]) {
+            union.push(arr1[i]);
+        }
+        i++;
+    }
+
+    while (j < n2) {
+        if (union.length === 0 || union[union.length - 1] !== arr2[j]) {
+            union.push(arr2[j]);
+        }
+        j++;
+    }
+    return union;
 }
