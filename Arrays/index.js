@@ -249,3 +249,22 @@ function intersectionArray(nums1, nums2) {
     }
     return inter;
 }
+
+//Q13 ----------- Single Element
+function singleEle(arr){    
+    let single = new Map();
+    
+    for (let i = 0; i < arr.length; i++) {
+        if(single.get(arr[i])){
+            single.set(arr[i], single.get(arr[i]) + 1);
+        } else{
+            single.set(arr[i],1)
+        }
+    }
+    for (let i = 0; i < arr.length; i++) {
+
+        if(single.get(arr[i]) === 1){
+            return arr[i]
+        }
+    }
+}
