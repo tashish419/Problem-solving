@@ -251,20 +251,47 @@ function intersectionArray(nums1, nums2) {
 }
 
 //Q13 ----------- Single Element
-function singleEle(arr){    
+function singleEle(arr) {
     let single = new Map();
-    
+
     for (let i = 0; i < arr.length; i++) {
-        if(single.get(arr[i])){
+        if (single.get(arr[i])) {
             single.set(arr[i], single.get(arr[i]) + 1);
-        } else{
-            single.set(arr[i],1)
+        } else {
+            single.set(arr[i], 1);
         }
     }
     for (let i = 0; i < arr.length; i++) {
+        if (single.get(arr[i]) === 1) {
+            return arr[i];
+        }
+    }
+}
 
-        if(single.get(arr[i]) === 1){
-            return arr[i]
+//or
+function single(nums) {
+    let result = 0;
+    for (let num of nums) {
+        result ^= num;
+    }
+    return result;
+}
+
+//Q14 ----------- Majority Element
+function majorityElement(nums) {
+    const newMap = new Map();
+
+    for (let i = 0; i < nums.length; i++) {
+        if (newMap.get(nums[i])) {
+            newMap.set(nums[i], newMap.get(nums[i]) + 1);
+        } else {
+            newMap.set(nums[i], 1);
+        }
+    }
+
+    for (let i = 0; i < nums.length; i++) {
+        if (newMap.get(nums[i]) > nums.length / 2) {
+            return nums[i];
         }
     }
 }
