@@ -295,3 +295,28 @@ function majorityElement(nums) {
         }
     }
 }
+
+//or------- using moore's voting Algo
+function majorityEle() {
+    let ele = nums[0];
+    let count = 0;
+    for (let i = 0; i < nums.length; i++) {
+        if (count === 0) {
+            count++;
+            ele = nums[i];
+        } else if (nums[i] === ele) {
+            count++;
+        } else {
+            count--;
+        }
+    }
+    let count1 = 0;
+    for (let i = 0; i < nums.length; i++) {
+        if (ele === nums[i]) {
+            count1++;
+        }
+    }
+    if (count1 > nums.length / 2) {
+        return ele;
+    } else return -1;
+}
